@@ -1,38 +1,292 @@
-.App {
-  text-align: center;
+@import url('https://font.googleapis.com/css2?family=Allura&family=Nunito:wgh@200;400;500;600;800&family=poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+#body{
+    min-height:100vh;
+    background-image:url('./Images/com.jpg');
+    background-size: cover;
+    background-position:center;
+}
+#head{
+    height:150px;
+    width:100%;
+    position:relative;
+    top:0;
+    left:0;
+    padding:20px 100px;
+    background: rgba(255,255,255, .1);
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter:blur(10px);
+    border-bottom:2px solid rgba(255,255,255, .4);
+    border-radius:100px;
+}
+#head::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);
+    transition: .5s;
+
+}
+#head:hover::before{
+    left:100%;
+}
+.navbar a{
+    color:#fff;
+    font-size:20px;
+    text-decoration:none;
+    margin-left:35px;
+    transition:.3s;
+    font-weight: bold;
+}
+.navbar a:hover{
+    color: red;
+}
+#Ac{
+    height:500px;
+}
+#Cd{
+    height:100px;
+}
+#Bc{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    height:200px;
+    width:500px;
+    background-color:lightblue;
+    border-radius:20px;
+    box-shadow:5px 5px 10px 10px blueviolet;
+}
+.bod{
+    width:100%;
+    height:50vh;
+    position: relative;
+  }
+  .avatar {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color:bisque;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    clip-path: inset(-100vw 0 0 0 round 50%);
+    border: 6px solid rgb(249, 242, 240);
+  }
+  
+  .avatar img {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    width: 100%;
+    height: auto;
+    transition: transform 0.2s ease;
+    border-radius:50%;
+    height:200px;
+    width:200px;
+  }
+  
+  .avatar:hover img {
+    transform: translate(-50%, -50%) scale(1.6);
+  }
+  span{
+    background-image:url("./Images/flowers.jpg");
+    background-clip:text;
+    color:transparent;
+    background-color:white;
+  }
+  .container{
+    max-width:1170px;
+    padding:0 15px;
+    margin:auto;
+  }
+  .section{
+    padding:80px 0;
+    min-height:100vh;
+    display:flex;
+  }
+  .section-cards{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:40px;
+  }
+  .section-card{
+    background-color: hsl(220,6%,10%);
+    padding:120px 30px 30px;
+    position:relative;
+    z-index:1;
+  }
+  .section-card:nth-child(1)
+  {
+    --color:hsl(101,99%,50%);
+  }
+  .section-card:nth-child(2)
+  {
+    --color:hsl(46, 82%, 42%);
+  }
+  .section-card:nth-child(3)
+  {
+    --color:hsl(329, 76%, 43%);
+  }
+  .section-card:nth-child(4)
+  {
+    --color:hsl(191, 65%, 27%);
+  }
+.section-card::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    background-color: var(--color);
+    z-index:-1;
+    clip-path: circle(40px at 70px 70px);
+    transition:clip-path 1s ease;
+}
+.section-card:hover::before{
+    clip-path:circle(100%);
+}
+.section-card span{
+    position:absolute;
+    left:0;
+    top:0;
+    height:80px;
+    width:80px;
+    font-size:50px;
+    font-weight:bold;
+    transform:translate(30px,30px);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    color:hsl(0,0%,0%);
+    transition:transform 1s ease;
+}
+.section-card:hover span{
+    transform:translate(0,30px);
+}
+.section-card  h2{
+    font-size:30px;
+    color:hsl(0,0%,100%);
+    font-weight:600;
+    text-transform: capitalize;
+    margin-bottom:10px;
+    line-height:1.3;
+}
+.section-card p{
+    color:hsl(0,0%,85%);
+    line-height:1.5;
+    font-size:20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.section-card h2,
+ .section-card p{
+    transition:color 1s ease;
+}
+.section-card:hover h2,
+.section-card:hover p{
+
+    color:hsl(0,0%,0%);
+}
+@media(max-width:991px)
+{
+    .section-cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+@media(max-width:575px)
+{
+    .section-cards{
+        grid-template-columns:repeat(1,1fr);
+    }
+}
+.scrolling-text-container {
+  width: 100%;
+  overflow: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.scrolling-text {
+  white-space: nowrap;
+  animation: scrollText 30s linear infinite;
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.contain{
+  position:absolute;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:absolute;
+  inset:0;
 }
-
-.App-link {
-  color: #61dafb;
+.sec{
+  background-color:black;
+  color:#fff;
+  height:36px;
+  width:36px;
+  margin:0px 7px 0px;
+  padding:5px;
+  border-radius:8px;
+  overflow:hidden;
+  display:inline-flex;
+  align-items:center;
+  white-space:nowrap;
+  box-shadow:5px 5px 8px rgba(0,0,0,0.9);
+  transition:width 300ms ease-in-out 0s;
+  background-color: 300ms linear 200ms;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.icon{
+  height:36px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  aspect-ratio:1/1;
+}
+.a{
+  text-decoration: none;
+}
+.sec:hover{
+  width:180px;
+  transition:width 300ms ease-in-out 0s;
+  background-color:100ms linear 0s;
+}
+.sec::after{
+  content:attr(tooltip);
+  margin-left:10px;
+}
+.instagram:hover{
+  background:linear-gradient(to bottom, purple, pink, orange);
+}
+.linkedin:hover{
+  background-color:skyblue;
+}
+.email:hover{
+  background-color:red;
+}
+.phone:hover{
+  background-color:green;
 }
